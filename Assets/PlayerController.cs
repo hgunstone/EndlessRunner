@@ -5,13 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public GameObject groundChecker;
-    float maxSpeed = 5.0f;
+    public float maxSpeed = 30.0f;
     public LayerMask whatIsground;
     float jumpForce = 300.0f;
-    float sprintSpeed = 15.0f;
-
     bool isOnGround = false;
-
     // Start is called before the first frame update
     Rigidbody2D playerObject;
 
@@ -23,8 +20,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+                maxSpeed = 30.0f;
+        }else
+        {
+            maxSpeed = 20.0f;
+        }
+        
         float movementValueX = Input.GetAxis("Horizontal");
-
         playerObject.velocity = new Vector2 (movementValueX, playerObject.velocity.y);
 
         isOnGround = Physics2D.OverlapCircle(groundChecker.transform.position, 1.0f, whatIsground);
@@ -33,11 +37,8 @@ public class PlayerController : MonoBehaviour
         {
             playerObject.AddForce(new Vector2(0.0f, jumpForce));
         }
-
-        if (Input.GetKeyDown(KeyCode.))
-        {
-            playerObject
-        }
+            
+        
     }
 
 }
