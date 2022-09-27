@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 6640742637833382563}
   m_Layer: 8
   m_Name: LargePlatofrm
-  m_TagString: Untagged
+  m_TagString: CleanUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
