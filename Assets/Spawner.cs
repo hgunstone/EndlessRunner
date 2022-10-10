@@ -10,8 +10,8 @@ public class Spawner : MonoBehaviour
     float timeToNextSpawn;
     float timeSinceLastSpawn = 0.0f;
 
-    public float minSpawnTime = 0.2f;
-    public float maxSpawnTime = 2.0f;
+    public float minSpawnTime = 0f;
+    public float maxSpawnTime = 1.0f;
     void Start()
     {
         timeToNextSpawn = Random.Range(minSpawnTime, maxSpawnTime);

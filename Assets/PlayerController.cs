@@ -5,9 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public GameObject groundChecker;
+    public Animator anim;
     public float maxSpeed = 5.0f;
     public LayerMask whatIsGround;
     bool isOnGround = false;
+    bool isjump = false;
     // Start is called before the first frame update
     Rigidbody2D playerObject;
 
@@ -18,9 +20,8 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
-
-        float movementValueX = Input.GetAxis("Horizontal");
+    {
+        float movementValueX = 1f;
         
         playerObject.velocity = new Vector2 (movementValueX * maxSpeed, playerObject.velocity.y);
         
@@ -29,10 +30,18 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround == true)
         {
-            playerObject.AddForce(new Vector2(0.0f, 500.0f));
+            playerObject.AddForce(new Vector2(0.0f, 200.0f));
+            isjump = true;
         }
-            
-        
+        else
+        {
+            isjump = false;
+        }
+
+        anim.SetBool("jump", isjump);
+        anim.SetBool("isgrounded", isOnGround);
+
+
     }
 
 }
