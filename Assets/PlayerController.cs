@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround == true)
         {
-            playerObject.AddForce(new Vector2(0.0f, 200.0f));
+            playerObject.AddForce(new Vector2(0.0f, 400.0f));
             isjump = true;
         }
         else
